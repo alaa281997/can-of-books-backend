@@ -15,8 +15,9 @@ app.use(express.json());
 
 const PORT = process.env.PORT;
 
-mongoose.connect(process.env.MONGO_URL,
-  { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(`${process.env.MONGO_URL}`,
+  { useNewUrlParser: true, useUnifiedTopology: true }); 
+
 
 const bookSchema = new mongoose.Schema({
   bookName: String,
@@ -49,7 +50,7 @@ function seedBookCollection() {
     Tipping1.save();
     Darkmans.save();
 }
-//seedBookCollection();
+
 
 function seedOwnerCollection() {
     const alaa = new myOwnerModel({
@@ -71,8 +72,6 @@ function seedOwnerCollection() {
     alaa.save();
 }
 
-
-//seedOwnerCollection();
 
 
 
